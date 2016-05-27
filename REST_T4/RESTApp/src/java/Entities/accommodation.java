@@ -28,6 +28,7 @@ public class accommodation {
         aux = "Hotel's name: " + Hotel.getName() + 
               " Begin Date: " + beginDate +
               " End Date: " + endDate +
+              " Rooms: " + rooms + 
               " Ages: [ ";
             for(int i = 0; i < rooms; i++) {
                 aux += age[i];
@@ -35,8 +36,7 @@ public class accommodation {
             }
             aux += "]";
             aux += " Card Number: " + card.getNumber() +
-                   " Parts: " + parts + "\n";
-            
+                   " Parts: " + parts + "\n";  
         return aux;
     }
 }

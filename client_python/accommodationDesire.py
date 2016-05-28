@@ -1,6 +1,11 @@
 # -*- coding: utf-8 -*-    
 
-class accommodationDesire(object):
+###############################################################################
+# Class is used for easily built a JSON output to send it for the Java WEB 
+# Service server.
+###############################################################################
+
+class accommodationDesire():
     def __init__(self, code, beginDate, 
              endDate, numberPerson, age, cardNumber, 
              dateValid, secretNumber, parts):
@@ -17,6 +22,6 @@ class accommodationDesire(object):
  
     def to_JSON(self):
         return {"code":self.code, "beginDate":self.beginDate, 
-                "endDate":self.endDate, "numberPerson":self.numberPerson, "age":self.age,
-                "cardNumber":self.cardNumber, "dateValid":self.dateValid, "secretNumber":self.secretNumber,
-                "parts":self.parts}
+            "endDate":self.endDate, "numberPerson":self.numberPerson, "age":self.age,
+            "cardNumber":self.cardNumber, "dateValid":self.dateValid, 
+            "secretNumber":self.secretNumber, "parts":self.parts}

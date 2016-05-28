@@ -1,5 +1,10 @@
 # -*- coding: utf-8 -*-    
 
+###############################################################################
+# Class is used for easily built a JSON output to send it for the Java WEB 
+# Service server.
+###############################################################################
+
 class airFlightTicketsDesire():
     def __init__(self, code, type_, beginDate, 
              endDate, numberOfPeople, age, cardNumber, 
@@ -17,6 +22,6 @@ class airFlightTicketsDesire():
         
     def to_JSON(self):
         return {"code":self.code, "type":self.type_,"beginDate":self.beginDate, 
-                "endDate":self.endDate, "numberOfPeople":self.numberOfPeople, "age":self.age,
-                "cardNumber":self.cardNumber, "dateValid":self.dateValid, "secretNumber":self.secretNumber,
-                "parts":self.parts}
+            "endDate":self.endDate, "numberOfPeople":self.numberOfPeople, 
+            "age":self.age, "cardNumber":self.cardNumber, "dateValid":self.dateValid, 
+            "secretNumber":self.secretNumber, "parts":self.parts}

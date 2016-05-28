@@ -1,35 +1,38 @@
 # -*- coding: utf-8 -*-
+
+###############################################################################
+# File that contains commom util functions to support other classes
+###############################################################################
+
 import json
 import requests
+import datetime
 
-#Este arquivo tem métodos comuns as outras classes
-#Este método converte a resposta recebioda pelo metodo exec_request para uma lista de JSONs
+def validate(date):
+    """
+    Function that validates date in a specific format.
+    """
 
-
-def request_to_json(response):
-    if(response.status_code == 200):
-        response_content_byte = response.content
-        response_content_str = response_content_byte.decode('unicode_escape')
-        response_content_json = json.loads(response_content_str)
-        
-        return response_content_json
-    else:
-        print("TENHO PROBLEMAS ", response.status_code)
-        
-
-
-#Este método imprime uma lista de JSONs na tela.
-
-
+    try:
+        datetime.datetime.strptime(date, '%d/%m/%Y')
+    except:
+        raise ValueError("Incorrect data format, should be DD-MM-YYYY")
 
 def exec_request(url, http_comand, json = None):
+    """
+    Function sends HTTP commands for the Java REST Webservice server.
+    """
+
     if http_comand == "post":
         resposta = requests.post(url=url, json=json)
-    if http_comand == "get":
+    elif http_comand == "get":
         resposta = requests.get(url=url)
-    if http_comand == "put":
+    elif http_comand == "put":
         resposta = requests.put(url=url, json=json)
+    else:
+        print "Not supported HTTP Command!"
+
     if(resposta.status_code == 200):
         return resposta
     else:
-        print("TENHO PROBLEMAS ", resposta.status_code)
+        print("Error has occurred : ", resposta.status_code)

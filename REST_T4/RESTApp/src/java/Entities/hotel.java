@@ -7,6 +7,13 @@ public class hotel {
     private float price;
     private int roomAvailable;
     
+    /**
+     * Hotel class
+     * @param name Name of the Hotel
+     * @param city City of the Hotel
+     * @param roomCapacity Hotel room capacity
+     * @param price Price of a room
+     */
     public hotel(String name, String city, int roomCapacity, float price) {
         this.name = name;
         this.city = city;
@@ -25,8 +32,13 @@ public class hotel {
               
         return aux;
     }
-    // return 0 to OK
-    // return 1 to error
+        
+    
+    /**
+     * 
+     * @param number How many tickets wanted
+     * @return 0 if OK or 1 o.w.
+     */
     public int booking(int number) {
         if (number < roomAvailable) {
             roomAvailable -= number;
@@ -36,8 +48,11 @@ public class hotel {
         }
     }
     
-    // return 0 to OK
-    // return 1 to error
+    /**
+     * 
+     * @param number How many tickets wanted
+     * @return 0 if OK or 1 o.w.
+     */
     public int free(int number) {
         if (roomAvailable + number < roomCapacity) {
             roomAvailable += number;

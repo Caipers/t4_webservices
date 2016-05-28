@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package REST_Resources;
 
 import Entities.accommodation;
@@ -23,23 +18,30 @@ import javax.ws.rs.core.MediaType;
 /**
  * REST Web Service
  *
- * @author root
+ * @author Samuel Pelegrinello Caipers
  */
 @Path("/accomodation")
 public class AccomodationResource {
     @Context
     private UriInfo context;
     
+    
+    /**
+     * Retrieves representation of an instance of REST_Resources.AccomodationResource
+     * @param content A JSON Object
+     * @return String response
+     */
     @POST
     @Path("/buyAccomodation")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.TEXT_PLAIN)
     public String buyAccommodation(String content) {
-        ArrayList<hotel> listOfHotels = REST.ApplicationConfig.listOfHotels;
+        ArrayList<hotel> listOfHotels                = REST.ApplicationConfig.listOfHotels;
         ArrayList<accommodation> listOfAccommodation = REST.ApplicationConfig.listOfAccommodation;
         
         JSONObject jsonobj = new JSONObject(content);
         
+        // parsing the JSON Object
         int code            = jsonobj.getInt("code");
         String beginDate    = jsonobj.getString("beginDate");
         String endDate      = jsonobj.getString("endDate");
@@ -55,7 +57,7 @@ public class AccomodationResource {
         for(int i = 0; i < jsonAge.length(); i++) {
             age[i] = jsonAge.getInt(i);
         }
-
+        
         String str = "";
         
         // some checks
@@ -88,7 +90,7 @@ public class AccomodationResource {
 
     /**
      * Retrieves representation of an instance of REST_Resources.AccomodationResource
-     * @return an instance of java.lang.String
+     * @return a String response
      */
     @GET
     @Path("/getAccomodations")
@@ -102,6 +104,10 @@ public class AccomodationResource {
         return str;
     }
     
+    /**
+     * Retrieves representation of an instance of REST_Resources.AccomodationResource
+     * @return a String response
+     */
     @GET
     @Path("/getHotels")
     @Produces(MediaType.TEXT_PLAIN)

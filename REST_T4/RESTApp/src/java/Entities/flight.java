@@ -7,6 +7,14 @@ public class flight {
     private int maxCapacity;
     private int seatsAvailable;
     
+    /**
+     * Flight class
+     * @param from Starting city
+     * @param destination Destination of the Flight
+     * @param maxCapacity Max Capacity of the Flight
+     * @param price Price of a seat
+     */
+    
     public flight(String from, String destination, int maxCapacity, float price) {
         this.from           = from;
         this.destination    = destination;
@@ -31,8 +39,11 @@ public class flight {
         this.maxCapacity = maxCapacity;
     }
     
-    // 0 if OK
-    // 1 if NOK
+    /**
+     * 
+     * @param tickets How many tickets wanted
+     * @return 0 if OK or 1 o.w.
+     */
     public int booking(int tickets) {
         if (tickets < seatsAvailable) {
             seatsAvailable -= tickets;
@@ -43,8 +54,11 @@ public class flight {
         }
     }
     
-    // 0 if OK
-    // 1 if NOK
+    /**
+     * 
+     * @param number Number of seats to be freed
+     * @return 0 if OK or 1 o.w.
+     */
     public int free(int number) {
         if (seatsAvailable + number > maxCapacity) {
             System.out.println("Invalid free value!");

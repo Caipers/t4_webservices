@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package REST_Resources;
 
 import Entities.credicard;
@@ -23,7 +18,7 @@ import json.JSONObject;
 /**
  * REST Web Service
  *
- * @author root
+ * @author Samuel Pelegrinello Caipers
  */
 @Path("/airTickets")
 public class AirTicketsResource {
@@ -37,6 +32,12 @@ public class AirTicketsResource {
     public AirTicketsResource() {
     }
 
+    
+    /**
+     * Retrieves representation of an instance of REST_Resources.AirTicketsResource
+     * @param content A JSON Object
+     * @return String response
+     */
     @POST
     @Path("/airTicket")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -47,6 +48,7 @@ public class AirTicketsResource {
         
         JSONObject jsonobj = new JSONObject(content);
         
+        // parsing the JSON Object
         int code                = jsonobj.getInt("code");
         int type                = jsonobj.getInt("type");
         String beginDate        = jsonobj.getString("beginDate");
@@ -92,6 +94,10 @@ public class AirTicketsResource {
         return str;
     }
     
+    /**
+     * Retrieves representation of an instance of REST_Resources.AirTicketsResource
+     * @return a String response
+     */
     @GET
     @Path("/getBookedAirTickets")
     @Produces(MediaType.TEXT_PLAIN)
@@ -104,6 +110,11 @@ public class AirTicketsResource {
         return str;
     }
     
+    
+    /**
+     * Retrieves representation of an instance of REST_Resources.AirTicketsResource
+     * @return a String response
+     */
     @GET
     @Path("/getFlights")
     @Produces(MediaType.TEXT_PLAIN)

@@ -1,5 +1,10 @@
 package Entities;
 
+/**
+* @author Samuel Pelegrinello Caipers
+* 
+*/
+
 public class accommodation {
     private hotel Hotel;
     private String beginDate;
@@ -9,6 +14,16 @@ public class accommodation {
     private credicard card;
     private int parts;
     
+    /**
+     * Accomodation class.
+     * @param Hotel object of a Hotel
+     * @param beginDate begin of a rental
+     * @param endDate end of a rental
+     * @param rooms how many rooms wished
+     * @param age ages of the people
+     * @param card object
+     * @param parts how many monthly payments
+     */
     public accommodation(hotel Hotel, String beginDate, String endDate, 
                          int rooms, int age[], credicard card,
                          int parts) {

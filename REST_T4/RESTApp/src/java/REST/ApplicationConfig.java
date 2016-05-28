@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package REST;
 
 import Entities.accommodation;
@@ -15,8 +10,13 @@ import javax.ws.rs.core.Application;
 
 /**
  *
- * @author root
+ * Jersey JAX-RS API RESTful Web Service Server for the 4th assigment of 
+ * distributed
+ * @author Samuel Pelegrinello Caipers
+ * 
  */
+
+// URL base for the other URIs Resources.
 @javax.ws.rs.ApplicationPath("/REST_Resources")
 public class ApplicationConfig extends Application {
     public static ArrayList<flight> listOfFlights                 = new ArrayList<>();
@@ -25,6 +25,7 @@ public class ApplicationConfig extends Application {
     public static ArrayList<accommodation> listOfAccommodation    = new ArrayList<>();
 
     public ApplicationConfig() {
+        // My initial "DB".
         listOfHotels.add(new hotel("ABC", "Curitiba", 50, 50));
         listOfHotels.add(new hotel("XYZ", "Sao Paulo", 70, 80));
         listOfHotels.add(new hotel("POI", "Sao Paulo", 30, 150));
@@ -51,9 +52,7 @@ public class ApplicationConfig extends Application {
      * If required, comment out calling this method in getClasses().
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
-        resources.add(REST.GenericResource.class);
         resources.add(REST_Resources.AccomodationResource.class);
         resources.add(REST_Resources.AirTicketsResource.class);
     }
-    
 }

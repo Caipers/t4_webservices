@@ -12,6 +12,20 @@ public class tickets {
     private credicard card;
     private int parts;
     
+    /**
+     * 
+     * @param code The Flight's Code
+     * @param type Type of the ticket 
+     * @param from Starting city
+     * @param departure End city
+     * @param beginDate The start date of the trip
+     * @param endDate The end date of the trip
+     * @param numberOfPeople Number of tickets
+     * @param age Age of these people
+     * @param card Credicard object
+     * @param parts How many monthly payment
+     */
+    
     public tickets(int code, int type, String from, 
                    String departure, String beginDate, String endDate, 
                    int numberOfPeople, int age[], credicard card, int parts) {
